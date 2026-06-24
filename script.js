@@ -26,16 +26,37 @@
     });
   }
 
-  // scroll reveal
-  var revealables = document.querySelectorAll('.reveal');
-  if (reduce || !('IntersectionObserver' in window)) {
-    revealables.forEach(function (el) { el.classList.add('in'); });
+  // scroll reveal — "emerge from mist", staggered one-by-one.
+  // Scroll-driven (not IntersectionObserver) so fast scrolls / anchor jumps
+  // can never leave an element stuck hidden.
+  var pending = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if (reduce) {
+    pending.forEach(function (el) { el.classList.add('in'); });
   } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    var check = function () {
+      var line = window.innerHeight * 0.85; // reveal once the element's top crosses this
+      var entering = [];
+      pending = pending.filter(function (el) {
+        if (el.getBoundingClientRect().top < line) { entering.push(el); return false; }
+        return true;
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-    revealables.forEach(function (el) { io.observe(el); });
+      entering.sort(function (a, b) {
+        return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
+      });
+      entering.forEach(function (el, i) {
+        el.style.transitionDelay = (i * 130) + 'ms';
+        el.classList.add('in');
+        setTimeout(function () { el.style.transitionDelay = ''; }, i * 130 + 1200);
+      });
+    };
+    var ticking = false;
+    var onTick = function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { check(); ticking = false; });
+    };
+    window.addEventListener('scroll', onTick, { passive: true });
+    window.addEventListener('resize', onTick, { passive: true });
+    check(); // reveal whatever is already in view on load
   }
 })();

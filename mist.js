@@ -32,19 +32,22 @@
     }
   }
 
+  var BASE = '#201F1A'; // matches --paper (dark)
+
   function paintStatic() {
-    // reduced-motion fallback: one soft static gradient
+    // reduced-motion fallback: one soft static gradient (dark)
     x.clearRect(0, 0, W, H);
     var g = x.createLinearGradient(0, 0, W, H);
-    g.addColorStop(0, '#FCFBF4'); g.addColorStop(0.5, '#EDEDE7'); g.addColorStop(1, '#F3EFDF');
+    g.addColorStop(0, '#201F1A'); g.addColorStop(0.5, '#2A2922'); g.addColorStop(1, '#1B1A15');
     x.fillStyle = g; x.fillRect(0, 0, W, H);
   }
 
   function frame() {
     if (!running) return;
     x.clearRect(0, 0, W, H);
-    x.fillStyle = '#FCFBF4'; x.fillRect(0, 0, W, H);
-    x.globalCompositeOperation = 'multiply';
+    x.fillStyle = BASE; x.fillRect(0, 0, W, H);
+    // 'screen' makes the pale mist glow softly on the dark base
+    x.globalCompositeOperation = 'screen';
     for (var i = 0; i < blobs.length; i++) {
       var b = blobs[i];
       b.x += b.vx / 100; b.y += b.vy / 100;
