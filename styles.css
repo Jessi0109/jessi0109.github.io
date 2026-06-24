@@ -127,7 +127,8 @@ a { color:var(--cinnamon); }
 
 /* ---- mobile menu ---- */
 @media (max-width:760px) {
-  .nav-toggle { display:block; }
+  .nav-toggle { display:block; margin-left:auto; order:2; }
+  .nav-inner > nav { order:3; flex:0; }
   /* solid header while the menu is open so the mist doesn't show through */
   .nav:has(.nav-links.open) { background:var(--paper); }
   .nav-links {
