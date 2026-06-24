@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jessi Tsai — 互動體驗開發者</title>
+  <meta name="description" content="Jessi Tsai 的作品集：8 年 Unity 開發經驗，橫跨 3D / XR、遊戲、教育科技與網頁。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="mist" aria-hidden="true"></canvas>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">Jessi Tsai</a>
+      <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">關於</a></li>
+          <li><a href="#work">作品</a></li>
+          <li><a href="#contact">聯絡</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">互動體驗開發者 · Interactive Developer</p>
+      <h1 class="hero-title">我把想法，<br>做成可以<em>互動的世界</em>。</h1>
+      <p class="hero-sub">8 年 Unity 開發經驗，橫跨 3D / XR、遊戲、教育科技與網頁。</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">聯絡我</a>
+        <a href="#work" class="btn btn-ghost">看作品</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>8</b><span>年開發經驗</span></div>
+        <div class="stat"><b>8</b><span>代表專案</span></div>
+        <div class="stat"><b>3D · Web · XR</b><span>跨域領域</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-inner">
+        <p class="section-label">關於我 · About</p>
+        <p class="about-text reveal">我是 Jessi Tsai，擁有 8 年軟體開發經驗的互動體驗開發者。以 Unity 為核心，橫跨 3D / XR、遊戲、教育科技與網頁前端——從引擎底層的系統、Shader、編輯器工具到 Android / iOS 原生整合，也能獨立完成 React 網頁與 WPF 桌面應用。我擅長把抽象的想法，做成使用者真正能操作、互動的產品。近期也持續往 LLM 應用開發（RAG、Agent、Prompt Engineering）發展，期待把 AI 帶進互動體驗。若你有互動 3D、教育科技或跨平台應用的需求，歡迎聊聊。</p>
+        <ul class="skills" aria-label="技能">
+          <li class="skill">Unity</li>
+          <li class="skill">C#</li>
+          <li class="skill">Lua</li>
+          <li class="skill">ReactJS</li>
+          <li class="skill">Shader</li>
+          <li class="skill">Addressables</li>
+          <li class="skill">Android / iOS</li>
+          <li class="skill">WPF / .NET</li>
+          <li class="skill">Jenkins / DevOps</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="section-inner">
+        <p class="section-label">作品 · Selected Work</p>
+
+        <div class="featured">
+          <article class="feat-card reveal">
+            <div class="feat-thumb ph" data-label="ClassSwift"><span class="badge">★ 主打</span></div>
+            <div class="feat-body">
+              <p class="proj-year">2025.04–2026.06</p>
+              <h3>ClassSwift</h3>
+              <p>ViewSonic 課堂互動教學軟體（Windows 原生）：即時測驗、註記、遊戲化計分與即時學習成效儀表板。</p>
+              <p class="proj-tags">WPF · .NET · 桌面</p>
+              <a class="proj-link" href="https://www.classswift.viewsonic.io/" target="_blank" rel="noopener">查看專案 ↗</a>
+            </div>
+          </article>
+
+          <article class="feat-card reverse reveal">
+            <div class="feat-thumb ph" data-label="DNA Brush"><span class="badge">★ 主打</span></div>
+            <div class="feat-body">
+              <p class="proj-year">2024.04–2024.06</p>
+              <h3>DNA Brush</h3>
+              <p>牙科精雕筆刷品牌官網，極簡視覺、產品攝影、中英雙語。</p>
+              <p class="proj-tags">Web · 品牌官網</p>
+              <a class="proj-link" href="https://www.dnabrush.net/zh" target="_blank" rel="noopener">查看專案 ↗</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="proj-grid">
+          <article class="proj-card reveal">
+            <div class="proj-thumb ph" data-label="ViewSonic Campus"></div>
+            <div class="proj-body">
+              <p class="proj-year">2025.01–2025.10</p>
+              <h3>ViewSonic Campus</h3>
+              <p>互動式 3D 虛擬校園，於桌機瀏覽器探索教育科技融入的教學空間。</p>
+              <p class="proj-tags">3D · Web · 教育</p>
+              <a class="proj-link" href="https://www.viewsonic.com/tw/education/3d-campus" target="_blank" rel="noopener">查看專案 ↗</a>
+            </div>
+          </article>
+
+          <article class="proj-card reveal">
+            <div class="proj-thumb ph" data-label="ViewAR"></div>
+            <div class="proj-body">
+              <p class="proj-year">2022.10–2023.03</p>
+              <h3>ViewAR</h3>
+              <p>React + model-viewer 產品展示 App，含資料架構規劃與 Chakra UI。</p>
+              <p class="proj-tags">React · AR</p>
+              <a class="proj-link" href="https://dev.d3mywq0hwdoc0n.amplifyapp.com/" target="_blank" rel="noopener">查看專案 ↗</a>
+            </div>
+          </article>
+
+          <article class="proj-card reveal">
+            <div class="proj-thumb ph" data-label="UNIVERSE"></div>
+            <div class="proj-body">
+              <p class="proj-year">2022.08–2023.03</p>
+              <h3>UNIVERSE</h3>
+              <p>教育元宇宙平台，含協作白板與 3D 教材系統。</p>
+              <p class="proj-tags">3D · 教育</p>
+              <a class="proj-link" href="https://www.youtube.com/watch?v=ybJ6-WxxF98" target="_blank" rel="noopener">觀看影片 ↗</a>
+            </div>
+          </article>
+
+          <article class="proj-card reveal">
+            <div class="proj-thumb ph" data-label="黃易群俠傳M"></div>
+            <div class="proj-body">
+              <p class="proj-year">2021.05–2022.07</p>
+              <h3>黃易群俠傳M</h3>
+              <p>手機 MMORPG：商城管理、AssetBundle、UI 系統、多語系與第三方登入（FB / Google / Apple）。</p>
+              <p class="proj-tags">Unity · Mobile · MMORPG</p>
+              <a class="proj-link" href="https://hem.chinesegamer.net/" target="_blank" rel="noopener">查看專案 ↗</a>
+            </div>
+          </article>
+
+          <article class="proj-card reveal">
+            <div class="proj-thumb ph" data-label="Weapolution"></div>
+            <div class="proj-body">
+              <p class="proj-year">2017.09–2018.06</p>
+              <h3>Weapolution</h3>
+              <p>雙人合作遊戲，2018 新一代設計展展出；Xbox 手把 + 鍵盤協作玩法。</p>
+              <p class="proj-tags">遊戲 · 雙人</p>
+            </div>
+          </article>
+
+          <article class="proj-card reveal">
+            <div class="proj-thumb ph" data-label="Atlantis"></div>
+            <div class="proj-body">
+              <p class="proj-year">2016.08</p>
+              <h3>Atlantis</h3>
+              <p>HTC Vive VR 體驗（VR Hack Fest），透過面板互動探索水下場景。</p>
+              <p class="proj-tags">VR</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="footer-inner">
+      <p class="section-label">聯絡 · Contact</p>
+      <p class="footer-cta">一起做點東西？</p>
+      <p class="footer-links">
+        <a href="mailto:jessi.js.tsai@gmail.com">jessi.js.tsai@gmail.com</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com/in/jessi-tsai-a05aa3401" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </p>
+      <p class="footer-copy">© 2026 Jessi Tsai</p>
+    </div>
+  </footer>
+
+  <script src="mist.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
