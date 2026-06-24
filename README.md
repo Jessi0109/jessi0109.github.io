@@ -20,14 +20,22 @@ python -m http.server 8000
 - `script.js` — 導覽、手機選單、捲動進場
 - `images/` — 專案縮圖（見 `images/README.md`）
 
-## 部署到 GitHub Pages
+## 部署到 GitHub Pages（user site）
 
-1. 在 GitHub 建立 repo（例如 `portfolio`）。
-2. 推送：
+規劃使用 user site repo `jessi0109.github.io`，上線網址會是 `https://jessi0109.github.io/`。
+
+1. 在 GitHub 建立 **Public** repo，名稱 `jessi0109.github.io`（先不要加 README）。
+2. 在本資料夾推送：
    ```bash
-   git remote add origin https://github.com/<帳號>/portfolio.git
+   git remote add origin https://github.com/Jessi0109/jessi0109.github.io.git
    git branch -M main
    git push -u origin main
    ```
 3. repo → Settings → Pages → Source 選 `Deploy from a branch` → `main` / `root` → Save。
-4. 幾分鐘後上線：`https://<帳號>.github.io/portfolio/`。
+4. 幾分鐘後上線：`https://jessi0109.github.io/`。
+
+> 已用 `gh` 登入 Jessi0109 的話，可一鍵完成：
+> ```bash
+> gh repo create jessi0109.github.io --public --source=. --remote=origin --push
+> ```
+> 推送後到 Settings → Pages 確認 Source 為 `main` / `root`。
