@@ -98,7 +98,14 @@ a { color:var(--cinnamon); }
 .proj-body h3 { font-family:var(--font-display); font-size:19px; margin:4px 0 8px; }
 .proj-body p { color:var(--body-dim); font-size:14px; margin:0 0 8px; }
 .proj-year { font-size:12px; color:var(--mist); letter-spacing:.04em; }
-.proj-tags { font-size:11px; color:var(--cinnamon); text-transform:uppercase; letter-spacing:.08em; }
+/* tag pills — consistent size for CJK + Latin, clear on dark */
+.proj-tags { list-style:none; display:flex; flex-wrap:wrap; gap:7px; margin:4px 0 8px; padding:0; }
+.proj-tags li {
+  font-size:12.5px; line-height:1; color:var(--cinnamon);
+  background:color-mix(in srgb, var(--cinnamon) 14%, transparent);
+  border:1px solid color-mix(in srgb, var(--cinnamon) 42%, transparent);
+  padding:5px 10px; border-radius:7px; letter-spacing:.01em; white-space:nowrap;
+}
 .badge { font-size:11px; background:var(--cinnamon); color:var(--white); padding:3px 10px; border-radius:6px; font-weight:700; }
 .proj-link { display:inline-block; margin-top:6px; font-size:14px; font-weight:600; text-decoration:none; }
 .proj-link:hover { text-decoration:underline; }
