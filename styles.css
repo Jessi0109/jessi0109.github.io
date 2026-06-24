@@ -128,14 +128,21 @@ a { color:var(--cinnamon); }
 /* ---- mobile menu ---- */
 @media (max-width:760px) {
   .nav-toggle { display:block; }
+  /* solid header while the menu is open so the mist doesn't show through */
+  .nav:has(.nav-links.open) { background:var(--paper); }
   .nav-links {
     position:absolute; top:100%; right:0; left:0;
-    flex-direction:column; gap:0; background:var(--paper);
-    border-bottom:1px solid var(--haze); padding:8px 24px 16px;
-    display:none;
+    flex-direction:column; gap:0;
+    background:#26251F;                     /* slightly elevated vs page */
+    border-top:1px solid var(--haze);
+    border-bottom:1px solid var(--haze);
+    box-shadow:0 18px 36px rgba(0,0,0,.5);  /* lift it off the hero */
+    padding:4px 24px 12px; display:none; z-index:30;
   }
   .nav-links.open { display:flex; }
-  .nav-links li { padding:10px 0; }
+  .nav-links li { padding:14px 2px; border-bottom:1px solid rgba(173,172,167,.12); }
+  .nav-links li:last-child { border-bottom:0; }
+  .nav-links a { display:block; font-size:16px; }
 }
 
 /* ---- focus visibility ---- */
