@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Travel Purchase Manager — Jessi Tsai</title>
+  <meta name="description" content="旅行代購管理系統：React + TypeScript SPA、Hono REST API、Cloudflare Workers / D1 / R2，以及 Test → Migration → Deploy 的完整 CI/CD 管線，全端獨立完成。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="mist" aria-hidden="true"></canvas>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html#top" class="nav-logo">Jessi Tsai</a>
+      <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html#about">關於</a></li>
+          <li><a href="index.html#work">作品</a></li>
+          <li><a href="index.html#contact">聯絡</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="detail">
+      <a class="back-link" href="index.html#work">← 返回作品集</a>
+      <section class="detail-hero reveal">
+        <p class="eyebrow">個人專案 · 全端獨立開發</p>
+        <h1>Travel Purchase Manager</h1>
+        <p class="lead">旅行代購管理系統 — 從前端、後端、資料庫到雲端部署，皆由個人獨立完成。免註冊，連結即帳本：出國前列代購清單、旅途中逐項打勾並記錄實付與收據、回國後依「買給誰」一鍵分帳。</p>
+        <div class="detail-meta">
+          <span>2026</span><span>個人專案</span><span><b>全端</b> 前端 · 後端 · 資料庫 · 部署</span>
+        </div>
+        <ul class="proj-tags">
+          <li>React 18</li><li>TypeScript</li><li>Vite</li><li>Hono</li>
+          <li>Cloudflare Workers</li><li>D1</li><li>R2</li><li>GitHub Actions</li><li>Vitest</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="detail-section">
+      <div class="section-inner">
+        <p class="section-label">解決的問題 · The Problem</p>
+        <h2 class="reveal">不是「代購清單」，是一套完整的工程</h2>
+        <p class="lede reveal">出國幫人代買時，清單散落在群組訊息、收據拍了就找不到、回國後還得逐筆對帳分錢。這個系統把整段流程收進一個免註冊、「連結即帳本」的工具——建立清單、記錄實付與收據、再依「買給誰」自動分帳。</p>
+        <p class="lede reveal">但對工程而言，重點不在代購本身，而在底下這套架構：React SPA、Hono REST API、自行設計的 D1 Schema 與版本遷移、R2 物件儲存，以及一條 <b>Test → Migration → Deploy</b> 的完整 CI/CD 管線，全部跑在 Cloudflare 邊緣運算上，前後端皆為 TypeScript。</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="section-inner">
+        <p class="section-label">產品畫面 · Screens</p>
+        <h2 class="reveal">實際運行畫面</h2>
+        <div class="shots">
+          <figure class="shot reveal">
+            <div class="frame"><img src="images/projects/tb-home.webp" alt="建立旅程畫面" loading="lazy"></div>
+            <figcaption><b>建立旅程</b>免註冊，建立後取得專屬連結即帳本。</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="frame"><img src="images/projects/tb-trip.webp" alt="代購清單畫面" loading="lazy"></div>
+            <figcaption><b>代購清單</b>行李吊牌式卡片、條碼短碼、已購印章與篩選排序。</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="frame"><img src="images/projects/tb-settle.webp" alt="結算與分帳畫面" loading="lazy"></div>
+            <figcaption><b>結算分帳</b>預估／實付總額，並依「買給誰」自動分帳。</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="frame"><img src="images/projects/tb-share.webp" alt="分享清單畫面" loading="lazy"></div>
+            <figcaption><b>一鍵分享</b>QR Code、複製連結、清單摘要與 Email。</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="section-inner">
+        <p class="section-label">系統架構 · Architecture</p>
+        <h2 class="reveal">單一 Edge Worker 同時服務前端與 API</h2>
+        <p class="lede reveal">一個 Cloudflare Worker 同時提供靜態 SPA 與 REST API；資料存於 D1（SQLite），收據圖片存於 R2，皆運行於 Cloudflare 的邊緣節點。</p>
+        <div class="diagram reveal">
+          <svg viewBox="0 0 440 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="系統架構圖：瀏覽器透過 HTTPS 連到單一 Cloudflare Worker，Worker 同時提供靜態 SPA 與 Hono REST API，API 連接 D1 資料庫與 R2 物件儲存。">
+            <defs>
+              <marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L6,3 L0,6 Z" fill="#EB7E12"></path>
+              </marker>
+            </defs>
+            <!-- client -->
+            <rect x="90" y="16" width="260" height="50" rx="12" fill="#2B2A24" stroke="#3A392F"></rect>
+            <text x="220" y="46" text-anchor="middle" fill="#F4F0E4" font-family="'Space Grotesk',sans-serif" font-size="16">瀏覽器 / 行動裝置</text>
+            <!-- arrow client->worker -->
+            <line x1="220" y1="66" x2="220" y2="104" stroke="#EB7E12" stroke-width="2" marker-end="url(#ah)"></line>
+            <text x="232" y="90" fill="#9A9991" font-family="'Space Grotesk',sans-serif" font-size="12">HTTPS</text>
+            <!-- worker container -->
+            <rect x="24" y="108" width="392" height="150" rx="14" fill="none" stroke="#EB7E12" stroke-width="1.5" stroke-dasharray="5 4"></rect>
+            <text x="40" y="130" fill="#EB7E12" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="600">Cloudflare Worker · 單一 Edge Worker</text>
+            <rect x="44" y="142" width="168" height="96" rx="11" fill="#201F1A" stroke="#3A392F"></rect>
+            <text x="128" y="183" text-anchor="middle" fill="#F4F0E4" font-family="'Space Grotesk',sans-serif" font-size="15">靜態網站 SPA</text>
+            <text x="128" y="205" text-anchor="middle" fill="#9A9991" font-family="'Noto Sans TC',sans-serif" font-size="12">React + Vite</text>
+            <rect x="228" y="142" width="168" height="96" rx="11" fill="#201F1A" stroke="#3A392F"></rect>
+            <text x="312" y="183" text-anchor="middle" fill="#F4F0E4" font-family="'Space Grotesk',sans-serif" font-size="15">REST API</text>
+            <text x="312" y="205" text-anchor="middle" fill="#9A9991" font-family="'Noto Sans TC',sans-serif" font-size="12">Hono · /api/*</text>
+            <!-- arrows API -> stores -->
+            <line x1="312" y1="258" x2="312" y2="290" stroke="#EB7E12" stroke-width="2"></line>
+            <line x1="128" y1="290" x2="396" y2="290" stroke="#EB7E12" stroke-width="2"></line>
+            <line x1="128" y1="290" x2="128" y2="338" stroke="#EB7E12" stroke-width="2" marker-end="url(#ah)"></line>
+            <line x1="312" y1="290" x2="312" y2="338" stroke="#EB7E12" stroke-width="2" marker-end="url(#ah)"></line>
+            <!-- D1 -->
+            <rect x="44" y="342" width="168" height="96" rx="11" fill="#2B2A24" stroke="#3A392F"></rect>
+            <text x="128" y="383" text-anchor="middle" fill="#F4F0E4" font-family="'Space Grotesk',sans-serif" font-size="15">D1 Database</text>
+            <text x="128" y="405" text-anchor="middle" fill="#9A9991" font-family="'Noto Sans TC',sans-serif" font-size="12">SQLite · 自訂 Schema</text>
+            <!-- R2 -->
+            <rect x="228" y="342" width="168" height="96" rx="11" fill="#2B2A24" stroke="#3A392F"></rect>
+            <text x="312" y="383" text-anchor="middle" fill="#F4F0E4" font-family="'Space Grotesk',sans-serif" font-size="15">R2 物件儲存</text>
+            <text x="312" y="405" text-anchor="middle" fill="#9A9991" font-family="'Noto Sans TC',sans-serif" font-size="12">收據圖片</text>
+          </svg>
+        </div>
+        <p class="diagram-note reveal">單一 Worker 同時服務前端與 API，省去獨立前端託管與跨網域設定，部署複雜度大幅降低。</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="section-inner">
+        <p class="section-label">自動化部署 · CI/CD</p>
+        <h2 class="reveal">Test → Migration → Deploy 部署管線</h2>
+        <p class="lede reveal">每次 push 到 <code>main</code>，GitHub Actions 依序執行建置、前端測試、Worker 測試、D1 遷移，全部通過才部署到正式環境。</p>
+        <div class="diagram reveal">
+          <svg viewBox="0 0 440 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CI/CD 管線圖：git push 觸發 GitHub Actions，依序執行 Build、Frontend Tests、Worker Tests、D1 Migration、Wrangler Deploy，全部通過後部署到 Cloudflare Workers 正式環境。">
+            <defs>
+              <marker id="ah2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L6,3 L0,6 Z" fill="#EB7E12"></path>
+              </marker>
+            </defs>
+            <!-- push -->
+            <rect x="120" y="14" width="200" height="46" rx="12" fill="#2B2A24" stroke="#3A392F"></rect>
+            <text x="220" y="42" text-anchor="middle" fill="#F4F0E4" font-family="'Space Grotesk',sans-serif" font-size="15">git push → main</text>
+            <line x1="220" y1="60" x2="220" y2="92" stroke="#EB7E12" stroke-width="2" marker-end="url(#ah2)"></line>
+            <!-- actions container -->
+            <rect x="40" y="96" width="360" height="372" rx="14" fill="none" stroke="#EB7E12" stroke-width="1.5" stroke-dasharray="5 4"></rect>
+            <text x="56" y="118" fill="#EB7E12" font-family="'Space Grotesk',sans-serif" font-size="13" font-weight="600">GitHub Actions</text>
+            <!-- stages -->
+            <g font-family="'Space Grotesk',sans-serif">
+              <rect x="64" y="130" width="312" height="52" rx="10" fill="#201F1A" stroke="#3A392F"></rect>
+              <text x="84" y="153" fill="#F4F0E4" font-size="15">1 · Build</text>
+              <text x="84" y="172" fill="#9A9991" font-family="'Noto Sans TC',sans-serif" font-size="12">tsc -b + Vite build</text>
+
+              <rect x="64" y="194" width="312" height="52" rx="10" fill="#201F1A" stroke="#3A392F"></rect>
+              <text x="84" y="217" fill="#F4F0E4" font-size="15">2 · Frontend Tests</text>
+              <text x="84" y="236" fill="#9A9991" font-family="'Noto Sans TC',sans-serif" font-size="12">Vitest · jsdom · 47 tests</text>
+
+              <rect x="64" y="258" width="312" height="52" rx="10" fill="#201F1A" stroke="#3A392F"></rect>
+              <text x="84" y="281" fill="#F4F0E4" font-size="15">3 · Worker Tests</text>
+              <text x="84" y="300" fill="#9A9991" font-family="'Noto Sans TC',sans-serif" font-size="12">vitest-pool-workers · 13 tests</text>
+
+              <rect x="64" y="322" width="312" height="52" rx="10" fill="#201F1A" stroke="#3A392F"></rect>
+              <text x="84" y="345" fill="#F4F0E4" font-size="15">4 · D1 Migration</text>
+              <text x="84" y="364" fill="#9A9991" font-family="'Noto Sans TC',sans-serif" font-size="12">wrangler d1 migrations apply --remote</text>
+
+              <rect x="64" y="386" width="312" height="52" rx="10" fill="#2B2A24" stroke="#EB7E12"></rect>
+              <text x="84" y="409" fill="#F4F0E4" font-size="15">5 · Wrangler Deploy</text>
+              <text x="84" y="428" fill="#9A9991" font-family="'Noto Sans TC',sans-serif" font-size="12">wrangler deploy</text>
+            </g>
+            <!-- connectors between stages -->
+            <g stroke="#EB7E12" stroke-width="2">
+              <line x1="220" y1="182" x2="220" y2="194" marker-end="url(#ah2)"></line>
+              <line x1="220" y1="246" x2="220" y2="258" marker-end="url(#ah2)"></line>
+              <line x1="220" y1="310" x2="220" y2="322" marker-end="url(#ah2)"></line>
+              <line x1="220" y1="374" x2="220" y2="386" marker-end="url(#ah2)"></line>
+            </g>
+            <!-- arrow to production -->
+            <line x1="220" y1="468" x2="220" y2="502" stroke="#EB7E12" stroke-width="2" marker-end="url(#ah2)"></line>
+            <rect x="96" y="506" width="248" height="56" rx="12" fill="#201F1A" stroke="#EB7E12" stroke-width="1.5"></rect>
+            <text x="220" y="532" text-anchor="middle" fill="#FCF8D8" font-family="'Space Grotesk',sans-serif" font-size="15">Cloudflare Workers</text>
+            <text x="220" y="551" text-anchor="middle" fill="#9A9991" font-family="'Noto Sans TC',sans-serif" font-size="12">Production · Edge</text>
+          </svg>
+        </div>
+        <p class="diagram-note reveal">任何一個測試或遷移步驟失敗就中止部署——正式環境永遠只會收到通過完整測試的版本。</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="section-inner">
+        <p class="section-label">我負責的部分 · What I Built</p>
+        <h2 class="reveal">全端獨立完成</h2>
+        <ul class="resp reveal">
+          <li>規劃並實作 React + TypeScript 單頁式應用（SPA）的完整前端架構與路由。</li>
+          <li>以 Hono 建立 RESTful API，實作 Trips 與 Items 的 CRUD，並加上跨旅程的權限驗證。</li>
+          <li>自行設計 D1（SQLite）資料表 Schema，並完成版本化 Migration，可安全演進結構。</li>
+          <li>建立 GitHub Actions CI/CD：Build → 前端測試 → Worker 測試 → D1 遷移 → 部署。</li>
+          <li>採單一 Cloudflare Worker 同時服務 REST API 與靜態網站，降低部署複雜度。</li>
+          <li>實作 QR Code／Email／收據分享與代購結算；收據圖片以 R2 儲存並以短網址管理。</li>
+          <li>前後端全程 TypeScript，輔以 60 個自動化測試（47 前端 + 13 Worker）守護品質。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="section-inner">
+        <p class="section-label">技術亮點 · Highlights</p>
+        <ul class="highlights reveal">
+          <li>React SPA Architecture</li>
+          <li>RESTful API Design</li>
+          <li>Database Schema &amp; Migration</li>
+          <li>Edge Computing</li>
+          <li>Cloud-native Deployment</li>
+          <li>CI/CD Pipeline</li>
+          <li>Type-safe Development</li>
+        </ul>
+        <p class="privacy-note">※ 基於成本與隱私考量，本專案不公開線上 Demo 與原始碼；以上為實際運行畫面與架構說明。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="footer-inner">
+      <p class="section-label">聯絡 · Contact</p>
+      <p class="footer-cta">一起做點東西？</p>
+      <p class="footer-links">
+        <a href="mailto:jessi.js.tsai@gmail.com">jessi.js.tsai@gmail.com</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com/in/jessi-tsai-a05aa3401" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </p>
+      <p class="footer-copy">© 2026 Jessi Tsai</p>
+    </div>
+  </footer>
+
+  <script src="mist.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
