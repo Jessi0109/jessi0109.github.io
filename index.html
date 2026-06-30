@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jessi Tsai — 互動體驗開發者</title>
-  <meta name="description" content="Jessi Tsai 的作品集：8 年軟體開發經驗，橫跨 3D / XR、遊戲、教育科技與網頁。">
+  <title>Jessi Tsai — Software Engineer</title>
+  <meta name="description" content="Jessi Tsai 的技術作品集：8 年全端開發經驗，專注系統架構、CI/CD 自動化、效能優化與跨平台開發。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -29,9 +29,9 @@
 
   <main id="top">
     <section class="hero">
-      <p class="eyebrow">互動體驗開發者 · Interactive Developer</p>
+      <p class="eyebrow">C# / Web Developer</p>
       <h1 class="hero-title">我把想法，<br>做成可以<em>互動的世界</em>。</h1>
-      <p class="hero-sub">8 年軟體開發經驗，橫跨 3D / XR、遊戲、教育科技與網頁。</p>
+      <p class="hero-sub">8 年全端開發經驗 · 系統架構 · CI/CD 自動化 · 效能優化 · 跨平台開發</p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">聯絡我</a>
         <a href="#work" class="btn btn-ghost">看作品</a>
@@ -46,17 +46,22 @@
     <section class="section" id="about">
       <div class="section-inner">
         <p class="section-label">關於我 · About</p>
-        <p class="about-text reveal">我是 Jessi Tsai，擁有 8 年軟體開發經驗的互動體驗開發者。以 Unity 為核心，橫跨 3D / XR、遊戲、教育科技與網頁前端——從引擎底層的系統、Shader、編輯器工具到 Android / iOS 原生整合，也能獨立完成 React 網頁與 WPF 桌面應用。我擅長把抽象的想法，做成使用者真正能操作、互動的產品。近期也持續往 LLM 應用開發（RAG、Agent、Prompt Engineering）發展，期待把 AI 帶進互動體驗。若你有互動 3D、教育科技或跨平台應用的需求，歡迎聊聊。</p>
+        <p class="about-text reveal">我是 Jessi Tsai，擁有 8 年軟體開發經驗的 Software Engineer。擅長系統架構設計、CI/CD 自動化與跨平台開發——從底層工具鏈到前端介面，從 Unity 3D/XR、React 網頁到 WPF 桌面應用。實作過熱更新架構遷移、Native Plugin、AssetBundle 增量更新、Jenkins 自動化包版，以及基於 Photon 的即時多人同步系統。我傾向於不只完成功能，而是主動透過良好的架構與自動化來提升團隊效率與產品品質。近期也持續往 LLM 應用開發（RAG、Agent、Prompt Engineering）發展。若你有系統設計、跨平台開發或導入自動化的需求，歡迎聊聊。</p>
         <ul class="skills" aria-label="技能">
+          <li class="skill">C# / .NET</li>
           <li class="skill">Unity</li>
-          <li class="skill">C#</li>
+          <li class="skill">React</li>
+          <li class="skill">JavaScript</li>
+          <li class="skill">TypeScript</li>
           <li class="skill">Lua</li>
-          <li class="skill">ReactJS</li>
-          <li class="skill">Shader</li>
-          <li class="skill">Addressables</li>
+          <li class="skill">WPF</li>
+          <li class="skill">Photon</li>
+          <li class="skill">Jenkins / CI/CD</li>
+          <li class="skill">AWS Lambda</li>
           <li class="skill">Android / iOS</li>
-          <li class="skill">WPF / .NET</li>
-          <li class="skill">Jenkins / DevOps</li>
+          <li class="skill">WebGL</li>
+          <li class="skill">Git</li>
+          <li class="skill">LLM / RAG</li>
         </ul>
       </div>
     </section>
@@ -71,8 +76,13 @@
             <div class="feat-body">
               <p class="proj-year">2025.01–2025.10</p>
               <h3>ViewSonic Campus</h3>
-              <p>互動式 3D 虛擬校園，於桌機瀏覽器探索教育科技融入的教學空間。</p>
-              <ul class="proj-tags"><li>3D</li><li>Web</li><li>教育</li></ul>
+              <p class="proj-desc">Unity WebGL 互動 3D 虛擬校園，深度整合進 ViewSonic 官方網站。</p>
+              <ul class="proj-tags"><li>Unity</li><li>WebGL</li><li>C#</li><li>JavaScript</li></ul>
+              <ul class="proj-achievements">
+                <li>實作 JavaScript ↔ Unity 雙向通訊（SendMessage），順暢整合至官網</li>
+                <li>優化 WebGL Asset 與載入策略，有效減少載入延遲</li>
+                <li>設計可配置產品展示區域，支援動態切換不同型號</li>
+              </ul>
               <a class="proj-link" href="https://www.viewsonic.com/tw/education/3d-campus" target="_blank" rel="noopener">查看專案 ↗</a>
             </div>
           </article>
@@ -82,7 +92,7 @@
             <div class="feat-body">
               <p class="proj-year">2024.04–2024.06</p>
               <h3>DNA Brush</h3>
-              <p>牙科精雕筆刷品牌官網，極簡視覺、產品攝影、中英雙語。</p>
+              <p class="proj-desc">牙科精雕筆刷品牌官網 — 極簡視覺、產品攝影、中英雙語。</p>
               <ul class="proj-tags"><li>Web</li><li>品牌官網</li></ul>
               <a class="proj-link" href="https://www.dnabrush.net/zh" target="_blank" rel="noopener">查看專案 ↗</a>
             </div>
@@ -95,8 +105,12 @@
             <div class="proj-body">
               <p class="proj-year">2025.04–2026.06</p>
               <h3>ClassSwift</h3>
-              <p>ViewSonic 課堂互動教學軟體（Windows 原生）：即時測驗、註記、遊戲化計分與即時學習成效儀表板。</p>
-              <ul class="proj-tags"><li>WPF</li><li>.NET</li><li>桌面</li></ul>
+              <p class="proj-desc">ViewSonic 課堂互動教學軟體 — Windows 原生桌面應用，即時測驗與遊戲化學習。</p>
+              <ul class="proj-tags"><li>WPF</li><li>.NET</li><li>C#</li></ul>
+              <ul class="proj-achievements">
+                <li>開發即時測驗、註記工具、遊戲化計分與學習儀表板</li>
+                <li>獨立完成 Windows 原生桌面應用全端開發</li>
+              </ul>
               <a class="proj-link" href="https://www.classswift.viewsonic.io/" target="_blank" rel="noopener">查看專案 ↗</a>
             </div>
           </article>
@@ -106,9 +120,14 @@
             <div class="proj-body">
               <p class="proj-year">2022.10–2023.03</p>
               <h3>ViewAR</h3>
-              <p>React + model-viewer 產品展示 App，含資料架構規劃與 Chakra UI。</p>
-              <ul class="proj-tags"><li>React</li><li>AR</li></ul>
-              <a class="proj-link" href="https://dev.d3mywq0hwdoc0n.amplifyapp.com/" target="_blank" rel="noopener">查看專案 ↗</a>
+              <p class="proj-desc">React 產品展示平台 — 將 Legacy UI 重構為可重用元件架構。</p>
+              <ul class="proj-tags"><li>React</li><li>Chakra UI</li><li>AWS Lambda</li></ul>
+              <ul class="proj-achievements">
+                <li>將 React Native Legacy UI 重構為標準化 Chakra UI 元件庫</li>
+                <li>整合 AWS Lambda API 實現郵件功能，提升開發效率</li>
+                <li>新增直立顯示模式與客製化背景切換，強化展示彈性</li>
+              </ul>
+              <a class="proj-link" href="https://www.viewar.viewsonic.io/" target="_blank" rel="noopener">查看專案 ↗</a>
             </div>
           </article>
 
@@ -117,8 +136,13 @@
             <div class="proj-body">
               <p class="proj-year">2022.08–2023.03</p>
               <h3>UNIVERSE</h3>
-              <p>教育元宇宙平台，含協作白板與 3D 教材系統。</p>
-              <ul class="proj-tags"><li>3D</li><li>教育</li></ul>
+              <p class="proj-desc">教育元宇宙平台 — 多人即時協作白板與同步 3D 教材系統。</p>
+              <ul class="proj-tags"><li>Unity</li><li>C#</li><li>Photon</li><li>WebGL</li></ul>
+              <ul class="proj-achievements">
+                <li>開發多人即時協作白板（自由筆畫、便利貼、復原/重做），透過 Photon 實現全客戶端同步</li>
+                <li>實作同步 3D 教材系統，講師可於虛擬教室中即時生成並操控教學模型</li>
+                <li>將原 Windows/iOS/Android 原生應用成功移植至 WebGL</li>
+              </ul>
               <a class="proj-link" href="https://www.youtube.com/watch?v=ybJ6-WxxF98" target="_blank" rel="noopener">觀看影片 ↗</a>
             </div>
           </article>
@@ -128,8 +152,14 @@
             <div class="proj-body">
               <p class="proj-year">2021.05–2022.07</p>
               <h3>黃易群俠傳M</h3>
-              <p>手機 MMORPG：商城管理、AssetBundle、UI 系統、多語系與第三方登入（FB / Google / Apple）。</p>
-              <ul class="proj-tags"><li>Unity</li><li>Mobile</li><li>MMORPG</li></ul>
+              <p class="proj-desc">大型 MMORPG 手機遊戲 — 商城系統、熱更新架構、CI/CD 自動化。</p>
+              <ul class="proj-tags"><li>Unity</li><li>C#</li><li>Jenkins</li><li>AssetBundle</li><li>Android/iOS</li></ul>
+              <ul class="proj-achievements">
+                <li>建立 Jenkins CI/CD 自動化包版，縮短發佈時間 30%+</li>
+                <li>設計基於檔案 hash 驗證的 AssetBundle 增量更新與斷點續傳</li>
+                <li>主導熱更新架構從 InjectFix 遷移至 tolua，不影響正式發佈</li>
+                <li>優化低階 iOS 裝置記憶體使用，降低約 20%，提升穩定性</li>
+              </ul>
               <a class="proj-link" href="https://hem.chinesegamer.net/" target="_blank" rel="noopener">查看專案 ↗</a>
             </div>
           </article>
@@ -139,8 +169,8 @@
             <div class="proj-body">
               <p class="proj-year">2017.09–2018.06</p>
               <h3>Weapolution</h3>
-              <p>雙人合作遊戲，2018 新一代設計展展出；Xbox 手把 + 鍵盤協作玩法。</p>
-              <ul class="proj-tags"><li>遊戲</li><li>雙人</li></ul>
+              <p class="proj-desc">雙人合作遊戲 — 支援 Xbox 手把 + 鍵盤協作，2018 新一代設計展展出。</p>
+              <ul class="proj-tags"><li>Unity</li><li>遊戲</li><li>雙人</li></ul>
             </div>
           </article>
 
@@ -149,8 +179,8 @@
             <div class="proj-body">
               <p class="proj-year">2016.08</p>
               <h3>Atlantis</h3>
-              <p>HTC Vive VR 體驗（VR Hack Fest），透過面板互動探索水下場景。</p>
-              <ul class="proj-tags"><li>VR</li></ul>
+              <p class="proj-desc">HTC Vive VR 體驗 — VR Hack Fest 作品，面板互動探索水下場景。</p>
+              <ul class="proj-tags"><li>Unity</li><li>VR</li></ul>
             </div>
           </article>
         </div>
